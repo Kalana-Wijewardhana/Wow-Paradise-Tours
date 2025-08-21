@@ -328,7 +328,7 @@ export default function HomePage() {
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('/tropical-island-paradise.png')`,
+            backgroundImage: `url('/12.jpg')`,
           }}
         >
           <div className="absolute inset-0 bg-gradient-to-r from-teal-900/60 via-emerald-800/40 to-cyan-900/60"></div>
