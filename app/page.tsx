@@ -1,11 +1,30 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { MapPin, Clock, Star, Phone, Mail, Menu, X, Users, Award, Shield, Heart } from "lucide-react"
-import { useState } from "react"
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import {
+  MapPin,
+  Clock,
+  Star,
+  Phone,
+  Mail,
+  Menu,
+  X,
+  Users,
+  Award,
+  Shield,
+  Heart,
+  MessageCircle,
+} from "lucide-react";
+import { useState } from "react";
 
 const itineraries = [
   {
@@ -16,7 +35,12 @@ const itineraries = [
     price: "$75",
     rating: 4.8,
     image: "/negombo-beach-palms.png",
-    highlights: ["Negombo Fish Market", "Catfish Aquarium", "Angurukaramulla Temple", "Negombo Beach Park"],
+    highlights: [
+      "Negombo Fish Market",
+      "Catfish Aquarium",
+      "Angurukaramulla Temple",
+      "Negombo Beach Park",
+    ],
     facilities: ["Beach Chalet", "Negombo Lagoon"],
   },
   {
@@ -26,19 +50,29 @@ const itineraries = [
     duration: "10 hours",
     price: "$85",
     rating: 4.9,
-    image: "/colombo.jpg",
-    highlights: ["Gangaramaya Temple", "Beira Lake", "Independence Square", "Galle Face Green"],
+    image: "/GalleFort.jpg",
+    highlights: [
+      "Gangaramaya Temple",
+      "Beira Lake",
+      "Independence Square",
+      "Galle Face Green",
+    ],
     facilities: ["Old Colombo Lighthouse", "Port of Colombo", "Red Mosque"],
   },
   {
     id: 3,
-    title: "One Day Tour - Sigiriya and Dambulla",
+    title: "Two Day Tour - Sigiriya and Dambulla",
     location: "Sigiriya",
     duration: "12 hours",
     price: "$120",
     rating: 4.9,
     image: "/sigiriya-fortress.png",
-    highlights: ["Golden Temple of Dambulla", "Sigiriya Rock Fortress", "Elephant Riding", "Spice Garden"],
+    highlights: [
+      "Golden Temple of Dambulla",
+      "Sigiriya Rock Fortress",
+      "Elephant Riding",
+      "Spice Garden",
+    ],
     facilities: ["Cave Temple", "Royal Gardens", "Water Gardens"],
   },
   {
@@ -49,48 +83,72 @@ const itineraries = [
     price: "$95",
     rating: 4.7,
     image: "/kandy-temple-lake-mountains.png",
-    highlights: ["Pinnawala Elephant Orphanage", "Tea Factory", "Kandy Lake and Temple", "Royal Botanical Gardens"],
+    highlights: [
+      "Pinnawala Elephant Orphanage",
+      "Tea Factory",
+      "Kandy Lake and Temple",
+      "Royal Botanical Gardens",
+    ],
     facilities: ["Temple of Sacred Tooth Relic", "Kandy Cultural Centre"],
   },
   {
     id: 5,
     title: "One Day Tour - Kitulgala Water Rafting",
     location: "Kitulgala",
-    duration: "8 hours",
+    duration: "5 days",
     price: "$110",
     rating: 4.6,
     image: "/sri-lanka-rafting.png",
-    highlights: ["White Water Rafting", "Belilena Cave", "Kitulgala Suspension Bridge"],
+    highlights: [
+      "White Water Rafting",
+      "Belilena Cave",
+      "Kitulgala Suspension Bridge",
+    ],
     facilities: ["Adventure Sports", "River Activities"],
   },
   {
     id: 6,
-    title: "One Day Tour - Galle",
+    title: "Two Day Tour - Galle",
     location: "Galle",
-    duration: "9 hours",
+    duration: "2 days",
     price: "$90",
     rating: 4.8,
     image: "/galle-fort-colonial-ocean.png",
-    highlights: ["Galle Fort and Lighthouse", "Stilt Fishermen", "Turtle Hatchery"],
+    highlights: [
+      "Galle Fort and Lighthouse",
+      "Stilt Fishermen",
+      "Turtle Hatchery",
+    ],
     facilities: ["Historic Fort", "Coastal Views"],
   },
   {
     id: 7,
-    title: "One Day Tour - Wilpattu National Park Safari",
+    title: "Four Day Tour - Wilpattu National Park Safari",
     location: "Wilpattu",
-    duration: "11 hours",
+    duration: "4 days",
     price: "$130",
     rating: 4.9,
     image: "/sri-lanka-leopard-safari.png",
-    highlights: ["Wilpattu National Park Safari", "Wildlife Spotting", "Mangrove Swamps"],
+    highlights: [
+      "Wilpattu National Park Safari",
+      "Wildlife Spotting",
+      "Mangrove Swamps",
+    ],
     facilities: ["Safari Jeep", "Wildlife Guide"],
   },
-]
+];
 
-const destinations = ["Negombo", "Colombo", "Sigiriya and Dambulla", "Kandy", "Galle", "Wilpattu National Park"]
+const destinations = [
+  "Negombo",
+  "Colombo",
+  "Sigiriya and Dambulla",
+  "Kandy",
+  "Galle",
+  "Wilpattu National Park",
+];
 
 export default function HomePage() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-background">
@@ -113,13 +171,15 @@ export default function HomePage() {
                 <MapPin className="w-6 h-6 text-white" />
               </div>
               <div>
-                <h1 className="text-xl font-bold font-[family-name:var(--font-work-sans)]">Wow Paradise Tours</h1>
+                <h1 className="text-xl font-bold font-[family-name:var(--font-work-sans)]">
+                  Wow Paradise Tours
+                </h1>
                 <p className="text-sm opacity-80">Discover Paradise</p>
               </div>
             </motion.div>
 
             {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center space-x-8">
+            <nav className="hidden md:flex items-center space-x-6">
               <a
                 href="#home"
                 className="hover:text-amber-400 transition-all duration-300 hover:scale-105 relative group"
@@ -148,18 +208,26 @@ export default function HomePage() {
                 Contact
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-amber-400 transition-all duration-300 group-hover:w-full"></span>
               </a>
+              <a
+                href="https://www.tripadvisor.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 hover:scale-105 shadow-lg"
+              >
+                TripAdvisor
+              </a>
             </nav>
 
             {/* Contact Info */}
             <div className="hidden lg:flex items-center space-x-4 text-sm bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
               <div className="flex items-center space-x-1 hover:text-amber-400 transition-colors">
                 <Phone className="w-4 h-4" />
-                <span>+94 77 123 4567</span>
+                <span>+94 77 147 9658</span>
               </div>
               <div className="w-px h-4 bg-white/30"></div>
               <div className="flex items-center space-x-1 hover:text-amber-400 transition-colors">
                 <Mail className="w-4 h-4" />
-                <span>info@wowparadisetours.com</span>
+                <span>wowparadise@rashinthatravel.com</span>
               </div>
             </div>
 
@@ -168,7 +236,11 @@ export default function HomePage() {
               className="md:hidden p-2 rounded-lg bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-all duration-300"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
-              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {isMenuOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
             </button>
           </div>
 
@@ -181,10 +253,16 @@ export default function HomePage() {
               className="md:hidden mt-4 pb-4 border-t border-white/20 bg-white/5 backdrop-blur-sm rounded-lg"
             >
               <div className="flex flex-col space-y-2 mt-4 px-4">
-                <a href="#home" className="hover:text-amber-400 transition-colors py-2 hover:bg-white/10 rounded px-2">
+                <a
+                  href="#home"
+                  className="hover:text-amber-400 transition-colors py-2 hover:bg-white/10 rounded px-2"
+                >
                   Home
                 </a>
-                <a href="#about" className="hover:text-amber-400 transition-colors py-2 hover:bg-white/10 rounded px-2">
+                <a
+                  href="#about"
+                  className="hover:text-amber-400 transition-colors py-2 hover:bg-white/10 rounded px-2"
+                >
                   About
                 </a>
                 <a
@@ -199,14 +277,54 @@ export default function HomePage() {
                 >
                   Contact
                 </a>
+                <a
+                  href="https://www.tripadvisor.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 py-2 px-2 rounded text-center font-medium transition-colors"
+                >
+                  TripAdvisor Reviews
+                </a>
+                <a
+                  href="https://wa.me/94771479658"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 py-2 px-2 rounded text-center font-medium transition-colors flex items-center justify-center space-x-2"
+                >
+                  <MessageCircle className="w-4 h-4" />
+                  <span>WhatsApp Us</span>
+                </a>
               </div>
             </motion.nav>
           )}
         </div>
       </motion.header>
 
+      {/* Floating WhatsApp Button */}
+      <motion.div
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        transition={{ delay: 1, duration: 0.5 }}
+        className="fixed bottom-6 right-6 z-50"
+      >
+        <a
+          href="https://wa.me/94771479658"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-110 flex items-center justify-center group"
+        >
+          <MessageCircle className="w-6 h-6" />
+          <span className="absolute right-full mr-3 bg-gray-800 text-white px-3 py-1 rounded-lg text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            Chat with us on WhatsApp
+          </span>
+        </a>
+      </motion.div>
+
       {/* Hero Section */}
-      <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden">
+      <section
+        id="home"
+        className="relative h-screen flex items-center justify-center overflow-hidden"
+      >
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
@@ -228,7 +346,7 @@ export default function HomePage() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-5xl md:text-7xl font-bold mb-6 font-[family-name:var(--font-work-sans)]"
           >
-            One Day Itineraries
+            Itineraries
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 30 }}
@@ -236,7 +354,8 @@ export default function HomePage() {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto"
           >
-            Explore the most beautiful destinations with our carefully crafted day tours
+            Explore the most beautiful destinations with our carefully crafted
+            day tours
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -283,7 +402,10 @@ export default function HomePage() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-16 bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50">
+      <section
+        id="about"
+        className="py-16 bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50"
+      >
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -295,17 +417,33 @@ export default function HomePage() {
               About Wow Paradise Tours
             </h2>
             <p className="text-xl text-emerald-700 max-w-3xl mx-auto">
-              Your gateway to discovering the breathtaking beauty and rich culture of Sri Lanka through unforgettable
-              day adventures
+              Your gateway to discovering the breathtaking beauty and rich
+              culture of Sri Lanka through unforgettable day adventures
             </p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
             {[
-              { icon: Users, title: "Expert Guides", desc: "Local experts with deep knowledge" },
-              { icon: Award, title: "Award Winning", desc: "Recognized for excellence in tourism" },
-              { icon: Shield, title: "Safe & Secure", desc: "Your safety is our top priority" },
-              { icon: Heart, title: "Memorable Experiences", desc: "Creating lifelong memories" },
+              {
+                icon: Users,
+                title: "Expert Guides",
+                desc: "Local experts with deep knowledge",
+              },
+              {
+                icon: Award,
+                title: "Award Winning",
+                desc: "Recognized for excellence in tourism",
+              },
+              {
+                icon: Shield,
+                title: "Safe & Secure",
+                desc: "Your safety is our top priority",
+              },
+              {
+                icon: Heart,
+                title: "Memorable Experiences",
+                desc: "Creating lifelong memories",
+              },
             ].map((feature, index) => (
               <motion.div
                 key={feature.title}
@@ -317,7 +455,9 @@ export default function HomePage() {
                 <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
                   <feature.icon className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2 text-emerald-900">{feature.title}</h3>
+                <h3 className="text-xl font-semibold mb-2 text-emerald-900">
+                  {feature.title}
+                </h3>
                 <p className="text-emerald-700">{feature.desc}</p>
               </motion.div>
             ))}
@@ -331,15 +471,20 @@ export default function HomePage() {
           >
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
               <div>
-                <h3 className="text-2xl font-bold mb-4 text-emerald-900">Our Story</h3>
+                <h3 className="text-2xl font-bold mb-4 text-emerald-900">
+                  Our Story
+                </h3>
                 <p className="text-emerald-700 mb-4">
-                  Founded with a passion for showcasing Sri Lanka's incredible diversity, Wow Paradise Tours has been
-                  creating extraordinary experiences for travelers from around the world. Our carefully curated day
-                  tours combine adventure, culture, and natural beauty.
+                  Founded with a passion for showcasing Sri Lanka's incredible
+                  diversity, Wow Paradise Tours has been creating extraordinary
+                  experiences for travelers from around the world. Our carefully
+                  curated day tours combine adventure, culture, and natural
+                  beauty.
                 </p>
                 <p className="text-emerald-700">
-                  From ancient temples to pristine beaches, from wildlife safaris to cultural immersions, we ensure
-                  every moment of your journey is filled with wonder and discovery.
+                  From ancient temples to pristine beaches, from wildlife
+                  safaris to cultural immersions, we ensure every moment of your
+                  journey is filled with wonder and discovery.
                 </p>
               </div>
               <div className="relative">
@@ -415,7 +560,9 @@ export default function HomePage() {
                   <CardContent>
                     <div className="space-y-4">
                       <div>
-                        <h4 className="font-semibold mb-2 text-emerald-900">Highlights:</h4>
+                        <h4 className="font-semibold mb-2 text-emerald-900">
+                          Highlights:
+                        </h4>
                         <ul className="text-sm text-emerald-700 space-y-1">
                           {tour.highlights.map((highlight, idx) => (
                             <li key={idx} className="flex items-start">
@@ -427,10 +574,16 @@ export default function HomePage() {
                       </div>
 
                       <div>
-                        <h4 className="font-semibold mb-2 text-emerald-900">Facilities:</h4>
+                        <h4 className="font-semibold mb-2 text-emerald-900">
+                          Facilities:
+                        </h4>
                         <div className="flex flex-wrap gap-1">
                           {tour.facilities.map((facility, idx) => (
-                            <Badge key={idx} variant="outline" className="text-xs border-emerald-200 text-emerald-700">
+                            <Badge
+                              key={idx}
+                              variant="outline"
+                              className="text-xs border-emerald-200 text-emerald-700"
+                            >
                               {facility}
                             </Badge>
                           ))}
@@ -466,15 +619,23 @@ export default function HomePage() {
             <h2 className="text-4xl font-bold mb-4 font-[family-name:var(--font-work-sans)] text-emerald-900">
               Top Picks for You
             </h2>
-            <p className="text-xl text-emerald-700">Our most popular destinations and experiences</p>
+            <p className="text-xl text-emerald-700">
+              Our most popular destinations and experiences
+            </p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               { name: "Sigiriya Rock", image: "/sigiriya-sunset.png" },
               { name: "Kandy Temple", image: "/kandy-temple-golden.png" },
-              { name: "Galle Fort", image: "/GalleFort.jpg" },
-              { name: "Safari Adventure", image: "/saffari.jpg" },
+              {
+                name: "Galle Fort",
+                image: "/GalleFort.jpg",
+              },
+              {
+                name: "Safari Adventure",
+                image: "/saffari.jpg",
+              },
             ].map((pick, index) => (
               <motion.div
                 key={pick.name}
@@ -491,7 +652,9 @@ export default function HomePage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-emerald-900/70 to-transparent"></div>
                 <div className="absolute bottom-4 left-4 text-white">
-                  <h3 className="text-lg font-semibold font-[family-name:var(--font-work-sans)]">{pick.name}</h3>
+                  <h3 className="text-lg font-semibold font-[family-name:var(--font-work-sans)]">
+                    {pick.name}
+                  </h3>
                 </div>
               </motion.div>
             ))}
@@ -500,7 +663,10 @@ export default function HomePage() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-16 bg-gradient-to-r from-emerald-900 via-teal-800 to-cyan-900 text-white">
+      <section
+        id="contact"
+        className="py-16 bg-gradient-to-r from-emerald-900 via-teal-800 to-cyan-900 text-white"
+      >
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -512,7 +678,8 @@ export default function HomePage() {
               Get In Touch
             </h2>
             <p className="text-xl opacity-90 max-w-2xl mx-auto">
-              Ready to embark on your Sri Lankan adventure? Contact us to plan your perfect day tour
+              Ready to embark on your Sri Lankan adventure? Contact us to plan
+              your perfect day tour
             </p>
           </motion.div>
 
@@ -532,7 +699,23 @@ export default function HomePage() {
                     </div>
                     <div>
                       <p className="font-semibold">Phone</p>
-                      <p className="opacity-90">+94 77 123 4567</p>
+                      <p className="opacity-90">+94 77 147 9658</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center space-x-4">
+                    <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center">
+                      <MessageCircle className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <p className="font-semibold">WhatsApp</p>
+                      <a
+                        href="https://wa.me/94771479658"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="opacity-90 hover:text-green-300 transition-colors"
+                      >
+                        +94 77 147 9658
+                      </a>
                     </div>
                   </div>
                   <div className="flex items-center space-x-4">
@@ -541,7 +724,9 @@ export default function HomePage() {
                     </div>
                     <div>
                       <p className="font-semibold">Email</p>
-                      <p className="opacity-90">info@wowparadisetours.com</p>
+                      <p className="opacity-90">
+                        wowparadise@rashinthatravel.com
+                      </p>
                     </div>
                   </div>
                   <div className="flex items-center space-x-4">
@@ -556,7 +741,7 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6">
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8">
                 <h3 className="text-xl font-bold mb-4">Why Choose Us?</h3>
                 <ul className="space-y-2 opacity-90">
                   <li>• Expert local guides with extensive knowledge</li>
@@ -578,7 +763,9 @@ export default function HomePage() {
               <form className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium mb-2">First Name</label>
+                    <label className="block text-sm font-medium mb-2">
+                      First Name
+                    </label>
                     <input
                       type="text"
                       className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-amber-500"
@@ -586,7 +773,9 @@ export default function HomePage() {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-2">Last Name</label>
+                    <label className="block text-sm font-medium mb-2">
+                      Last Name
+                    </label>
                     <input
                       type="text"
                       className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-amber-500"
@@ -595,7 +784,9 @@ export default function HomePage() {
                   </div>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-2">Email</label>
+                  <label className="block text-sm font-medium mb-2">
+                    Email
+                  </label>
                   <input
                     type="email"
                     className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-amber-500"
@@ -603,7 +794,9 @@ export default function HomePage() {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-2">Tour Interest</label>
+                  <label className="block text-sm font-medium mb-2">
+                    Tour Interest
+                  </label>
                   <select className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white focus:outline-none focus:ring-2 focus:ring-amber-500">
                     <option value="">Select a tour</option>
                     <option value="sigiriya">Sigiriya & Dambulla</option>
@@ -614,7 +807,9 @@ export default function HomePage() {
                   </select>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-2">Message</label>
+                  <label className="block text-sm font-medium mb-2">
+                    Message
+                  </label>
                   <textarea
                     rows={4}
                     className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-amber-500"
@@ -639,10 +834,13 @@ export default function HomePage() {
                 <div className="w-8 h-8 bg-gradient-to-br from-amber-500 to-orange-500 rounded-full flex items-center justify-center">
                   <MapPin className="w-5 h-5 text-white" />
                 </div>
-                <h3 className="text-xl font-bold font-[family-name:var(--font-work-sans)]">Wow Paradise Tours</h3>
+                <h3 className="text-xl font-bold font-[family-name:var(--font-work-sans)]">
+                  Wow Paradise Tours
+                </h3>
               </div>
               <p className="text-sm opacity-80">
-                Discover the beauty of Sri Lanka with our expertly crafted day tours and unforgettable experiences.
+                Discover the beauty of Sri Lanka with our expertly crafted day
+                tours and unforgettable experiences.
               </p>
             </div>
 
@@ -650,22 +848,34 @@ export default function HomePage() {
               <h4 className="font-semibold mb-4">Quick Links</h4>
               <ul className="space-y-2 text-sm">
                 <li>
-                  <a href="#home" className="hover:text-amber-400 transition-colors">
+                  <a
+                    href="#home"
+                    className="hover:text-amber-400 transition-colors"
+                  >
                     Home
                   </a>
                 </li>
                 <li>
-                  <a href="#about" className="hover:text-amber-400 transition-colors">
+                  <a
+                    href="#about"
+                    className="hover:text-amber-400 transition-colors"
+                  >
                     About Us
                   </a>
                 </li>
                 <li>
-                  <a href="#itineraries" className="hover:text-amber-400 transition-colors">
+                  <a
+                    href="#itineraries"
+                    className="hover:text-amber-400 transition-colors"
+                  >
                     Itineraries
                   </a>
                 </li>
                 <li>
-                  <a href="#contact" className="hover:text-amber-400 transition-colors">
+                  <a
+                    href="#contact"
+                    className="hover:text-amber-400 transition-colors"
+                  >
                     Contact
                   </a>
                 </li>
@@ -676,22 +886,34 @@ export default function HomePage() {
               <h4 className="font-semibold mb-4">Popular Tours</h4>
               <ul className="space-y-2 text-sm">
                 <li>
-                  <a href="#" className="hover:text-amber-400 transition-colors">
+                  <a
+                    href="#"
+                    className="hover:text-amber-400 transition-colors"
+                  >
                     Sigiriya & Dambulla
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-amber-400 transition-colors">
+                  <a
+                    href="#"
+                    className="hover:text-amber-400 transition-colors"
+                  >
                     Kandy City Tour
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-amber-400 transition-colors">
+                  <a
+                    href="#"
+                    className="hover:text-amber-400 transition-colors"
+                  >
                     Galle Fort
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-amber-400 transition-colors">
+                  <a
+                    href="#"
+                    className="hover:text-amber-400 transition-colors"
+                  >
                     Safari Adventure
                   </a>
                 </li>
@@ -703,15 +925,26 @@ export default function HomePage() {
               <div className="space-y-2 text-sm">
                 <div className="flex items-center space-x-2">
                   <Phone className="w-4 h-4" />
-                  <span>+94 77 123 4567</span>
+                  <span>+94 77 147 9658</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <Mail className="w-4 h-4" />
-                  <span>info@wowparadisetours.com</span>
+                  <span>wowparadise@rashinthatravel.com</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <MapPin className="w-4 h-4" />
                   <span>Colombo, Sri Lanka</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <MessageCircle className="w-4 h-4" />
+                  <a
+                    href="https://wa.me/94771479658"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-green-400 transition-colors"
+                  >
+                    WhatsApp
+                  </a>
                 </div>
               </div>
             </div>
@@ -723,5 +956,5 @@ export default function HomePage() {
         </div>
       </footer>
     </div>
-  )
+  );
 }
